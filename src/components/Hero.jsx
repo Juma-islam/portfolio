@@ -106,7 +106,7 @@ const Hero = () => {
               }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              Meriem
+              Juma
             </motion.span>
           </motion.h1>
           
@@ -114,7 +114,7 @@ const Hero = () => {
             className="text-2xl md:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-purple-400"
             variants={itemVariants}
           >
-            Full Stack Developer
+            Mern Stack Developer
           </motion.h2>
           
           <motion.p 
@@ -186,9 +186,9 @@ const Hero = () => {
             transition={{ duration: 0.3 }}
           >
             <img 
-              alt="Meriem working at a laptop" 
+              alt="Juma Islam working at a laptop" 
               className="w-full h-full object-cover" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvbA-LysyGe47kIhpZ0GSlhnzNmmCJtBU9pBduAnc63a-IhCpuLvEm1j7AADSoZztAqkKdD5WwRKNWqeUQOWT_Muggl8nhadmPNIz4-vpxipPvHKEFektUzRj8kBZLZ4lPYngOI9jx791wV_c9vM3wPtdiKJmrltXjWBU4a-YRJJPogI-5V_2dTytZgedmMPftP7ZuAxD1iv9vFQzS5MeCeFJbhMW-pH1cMFghtvtmnCWsjSRVvL2XILx5mRfXmTRoYoBKXtXM"
+              src="https://i.ibb.co.com/8Dyqrx50/jumko-removebg-preview-1.jpg"
             />
           </motion.div>
           

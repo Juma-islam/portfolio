@@ -13,7 +13,7 @@ const About = () => {
     },
     {
       icon: "smartphone", 
-      title: "Mobile Application Development"
+      title: "Front-End Development"
     },
     {
       icon: "psychology",
@@ -120,7 +120,7 @@ const About = () => {
               <img 
                 alt="Meriem graduation photo" 
                 className="w-full h-full object-cover rounded-full shadow-lg grayscale hover:grayscale-0 transition-all duration-500" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT8bIOt_2lmYWrpZiCmRMFqzv4eYlKwFBjdJhAxjZmZmfdIO7UATstdnaw1fP3mQdi9KOm9AubjkLQ93bFlksKAYLvO2N8SCu80jnCYDO63G4rm877xKGSqOLIXm_c4E8MqnMQPKZz853tGKKYcLtBRAgUWzsPjCGX_hww_ardbd-fp6rxM7ID37Sd3HYKxu11qvtSS9m9qq10JYDMbMk4HdGooDPKhdxmnmYPjJoMqXI_1yZCpl5DJhM3yKIVeNXbRHKxHlaT"
+                src="https://i.ibb.co.com/wZ0ct1yX/image-5-Photoroom.png"
                 ref={imageRef}
               />
             </div>
@@ -136,21 +136,21 @@ const About = () => {
               className="text-2xl font-bold text-primary"
               variants={itemVariants}
             >
-              I'm Meriem Benfakhadoun
+              I'm Juma Islam
             </motion.h3>
             
             <motion.p 
               className="text-gray-600 dark:text-gray-400 leading-relaxed"
               variants={itemVariants}
             >
-              Software Engineering Master's student at USTHB and freelance web/mobile developer in Algiers.
+              I am a Front-End / MERN Stack Web Developer focused on building modern, responsive, and user-friendly web applications.
             </motion.p>
             
             <motion.p 
               className="text-gray-600 dark:text-gray-400 leading-relaxed"
               variants={itemVariants}
             >
-              I create tailored solutions using Laravel, React, Flutter, and more for startups and businesses. I am passionate about solving complex problems through elegant code.
+              I work mainly with React, JavaScript, Tailwind CSS, Node.js, and MongoDB to create clean, efficient, and scalable solutions. I enjoy learning new technologies and turning ideas into real-world digital experiences through thoughtful design and clean code.
             </motion.p>
             
             <div className="space-y-4 pt-4">

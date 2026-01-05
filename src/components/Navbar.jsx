@@ -87,7 +87,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Meriem<span className="text-primary text-sm align-top">&lt;/&gt;</span>
+          Juma Islam<span className="text-primary text-sm align-top">&lt;/&gt;</span>
         </motion.button>
         
         <div className="hidden md:flex space-x-8 items-center font-medium text-sm tracking-wide">
