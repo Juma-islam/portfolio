@@ -149,7 +149,7 @@ const Hero = () => {
             
             <div className="flex items-center justify-center gap-4 px-4">
               <motion.a 
-                href="#" 
+                href="https://github.com/Juma-islam" 
                 className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
                 whileHover={{ scale: 1.2, rotate: 360 }}
                 whileTap={{ scale: 0.9 }}
@@ -157,7 +157,7 @@ const Hero = () => {
                 <span className="material-icons text-lg">code</span>
               </motion.a>
               <motion.a 
-                href="#" 
+                href="https://www.linkedin.com/in/juma-islam" 
                 className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"
                 whileHover={{ scale: 1.2, rotate: -360 }}
                 whileTap={{ scale: 0.9 }}

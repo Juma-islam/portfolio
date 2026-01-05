@@ -61,7 +61,7 @@ const Footer = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Meriem<span className="text-primary text-xs align-top">&lt;/&gt;</span>
+          Juma Islam<span className="text-primary text-xs align-top">&lt;/&gt;</span>
         </motion.button>
         
         <motion.div 

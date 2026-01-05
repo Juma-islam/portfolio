@@ -19,24 +19,54 @@ const Contact = () => {
     })
   }
 
+  const formEndpoint = 'https://formspree.io/f/your-form-id'
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', formData)
-      alert('Message sent successfully!')
-      setFormData({ name: '', email: '', message: '' })
+    try {
+      const response = await fetch(formEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      
+      if (response.ok) {
+        alert('Message sent successfully!')
+        setFormData({ name: '', email: '', message: '' })
+      } else {
+        alert('Error sending message. Please try again.')
+      }
+    } catch (error) {
+      alert('Error sending message. Please check your connection.')
+    } finally {
       setIsSubmitting(false)
-    }, 1500)
+    }
   }
 
+ 
   const socialLinks = [
-    { icon: 'code', href: '#', hoverColor: 'hover:bg-primary', color: 'primary' },
-    { icon: 'work', href: '#', hoverColor: 'hover:bg-blue-600', color: 'blue-600' },
-    { icon: 'camera_alt', href: '#', hoverColor: 'hover:bg-pink-600', color: 'pink-600' },
-    { icon: 'flutter_dash', href: '#', hoverColor: 'hover:bg-blue-400', color: 'blue-400' }
+    { 
+      icon: 'code', 
+      href: 'https://github.com/Juma-islam', 
+      hoverColor: 'hover:bg-gray-800', 
+      color: 'gray-800' 
+    },
+    { 
+      icon: 'work', 
+      href: 'https://www.linkedin.com/in/juma-islam',
+      hoverColor: 'hover:bg-blue-600', 
+      color: 'blue-600' 
+    },
+    { 
+      icon: 'facebook', 
+      href: 'https://www.facebook.com/ononna.islam.juma', 
+      hoverColor: 'hover:bg-blue-800', 
+      color: 'blue-800' 
+    }
   ]
 
   const containerVariants = {
@@ -62,18 +92,6 @@ const Contact = () => {
     }
   }
 
-  const formVariants = {
-    hidden: { scale: 0.9, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "back.out(1.7)"
-      }
-    }
-  }
-
   return (
     <section className="py-24 relative overflow-hidden" id="contact" ref={sectionRef}>
       <motion.div 
@@ -90,7 +108,7 @@ const Contact = () => {
       />
       
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header - Always visible */}
+        {/* Header */}
         <div className="text-center mb-16">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mb-4"
@@ -116,7 +134,7 @@ const Contact = () => {
           </motion.p>
         </div>
         
-        {/* Contact Form - Always visible */}
+        {/* Contact Form */}
         <div className="max-w-2xl mx-auto bg-white/50 dark:bg-card-dark/80 backdrop-blur-lg p-8 md:p-10 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-2xl">
           <motion.form 
             onSubmit={handleSubmit} 
@@ -209,7 +227,7 @@ const Contact = () => {
           </motion.form>
         </div>
         
-        {/* Social Links - Always visible */}
+        {/* Social Links */}
         <div className="flex justify-center gap-6 mt-12">
           {socialLinks.map((link, index) => (
             <motion.a
@@ -231,7 +249,6 @@ const Contact = () => {
           ))}
         </div>
 
-        {/* Contact Information - Always visible */}
         <div className="mt-16 grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <motion.div 
             className="text-center p-6 rounded-2xl bg-white/30 dark:bg-card-dark/30 backdrop-blur-sm border border-gray-200 dark:border-gray-800"
@@ -243,7 +260,7 @@ const Contact = () => {
               <span className="material-icons text-primary text-xl">email</span>
             </div>
             <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Email</h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">meriem.benfakhadoun@example.com</p>
+            <a href="mailto:your-email@example.com" className="text-gray-600 dark:text-gray-400 text-sm">islamjuma324@gmail.com</a> 
           </motion.div>
 
           <motion.div 
@@ -256,7 +273,7 @@ const Contact = () => {
               <span className="material-icons text-primary text-xl">phone</span>
             </div>
             <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Phone</h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">+213 XXX XXX XXX</p>
+            <a href="tel:+880XXXXXXXXXX" className="text-gray-600 dark:text-gray-400 text-sm">+8801720472108</a> 
           </motion.div>
 
           <motion.div 
@@ -266,10 +283,10 @@ const Contact = () => {
             transition={{ delay: 0.6, duration: 0.6 }}
           >
             <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="material-icons text-primary text-xl">location_on</span>
+              <span className="material-icons text-primary text-xl">whatsapp</span> 
             </div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Location</h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">Algiers, Algeria</p>
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">WhatsApp </h3>
+            <a href="https://wa.me/+8801720472108" className="text-gray-600 dark:text-gray-400 text-sm">+8801720472108</a> 
           </motion.div>
         </div>
       </div>

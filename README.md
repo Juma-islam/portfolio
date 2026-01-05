@@ -1,4 +1,4 @@
-# Meriem's Portfolio - React Version with Advanced Animations
+# Juma's Portfolio - React Version with Advanced Animations
 
 A modern, responsive portfolio website built with React and Vite, featuring stunning Framer Motion and GSAP animations for a professional and eye-catching experience.
 
