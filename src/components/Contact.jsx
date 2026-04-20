@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 import { 
   FaEnvelope, 
   FaPhone, 
@@ -11,33 +12,45 @@ import {
 } from 'react-icons/fa'
 import { ButtonLoading } from './Loading'
 
+const SERVICE_ID = 'service_wo75pvt'
+const TEMPLATE_ID = 'template_ibi48l8'
+const PUBLIC_KEY = 'wb3_ou9wtfjSpxOK9'
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null)
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
-    // Simulate form submission
-    setTimeout(() => {
-      alert('Message sent successfully!')
+    setSubmitStatus(null)
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        PUBLIC_KEY
+      )
+      setSubmitStatus('success')
       setFormData({ name: '', email: '', message: '' })
+    } catch (error) {
+      console.error('EmailJS error:', error)
+      setSubmitStatus('error')
+    } finally {
       setIsSubmitting(false)
-    }, 1000)
+    }
   }
 
   const contactInfo = [
@@ -94,7 +107,6 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-white dark:bg-gray-900" ref={sectionRef}>
       <div className="container mx-auto px-6">
-        {/* Section Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -112,17 +124,12 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-8">
-              Let's Connect
-            </h3>
-            
-            {/* Contact Info Cards */}
+            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-8">Let's Connect</h3>
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
                 <motion.a
@@ -145,11 +152,8 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Social Links */}
             <div>
-              <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-6">
-                Follow Me
-              </h4>
+              <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-6">Follow Me</h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -171,7 +175,6 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -233,19 +236,29 @@ const Contact = () => {
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
               >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={false}
-                  animate={{ opacity: isSubmitting ? 0 : 0 }}
-                />
                 <span className="relative z-10">
-                  {isSubmitting ? (
-                    <ButtonLoading message="Sending..." size="medium" />
-                  ) : (
-                    'Send Message'
-                  )}
+                  {isSubmitting ? <ButtonLoading message="Sending..." size="medium" /> : 'Send Message'}
                 </span>
               </motion.button>
+
+              {submitStatus === 'success' && (
+                <motion.p
+                  className="text-green-500 text-center font-medium"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  ✅ Message sent! I'll get back to you soon.
+                </motion.p>
+              )}
+              {submitStatus === 'error' && (
+                <motion.p
+                  className="text-red-500 text-center font-medium"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  ❌ Failed to send. Please try again.
+                </motion.p>
+              )}
             </form>
           </motion.div>
         </div>

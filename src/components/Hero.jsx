@@ -244,7 +244,7 @@ const Hero = () => {
                 }}
               >
                 <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center overflow-hidden relative shadow-inner">
-                  <motion.img
+                  {/* <motion.img
                     src="https://i.ibb.co.com/9FKBkBT/jumko-removebg-preview-1.jpg"
                     alt="Juma Islam - Full Stack Developer"
                     className="w-full h-full object-cover"
@@ -262,7 +262,29 @@ const Hero = () => {
                         e2.target.nextSibling.style.display = 'flex'
                       }
                     }}
+                  /> */}
+                  <motion.img
+                    src="https://i.ibb.co.com/gZ2TXb24/jumu2.png"
+                    alt="Juma Islam - Full Stack Developer"
+                    className="w-full h-full object-cover"
+                    fetchPriority="high"
+                    loading="eager"
+                    initial={{ scale: 1.4, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 1.5, delay: 1.2 }}
+                    whileHover={{ 
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 }
+                    }}
+                    onError={(e) => {
+                      e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face&auto=format&q=80"
+                      e.target.onerror = (e2) => {
+                        e2.target.style.display = 'none'
+                        e2.target.nextSibling.style.display = 'flex'
+                      }
+                    }}
                   />
+                  
                   <motion.div 
                     className="w-full h-full bg-gradient-to-br from-purple-200 to-blue-200 dark:from-purple-800 dark:to-blue-800 flex items-center justify-center" 
                     style={{display: 'none'}}

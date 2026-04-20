@@ -58,8 +58,8 @@ function App() {
         <About />
         <Skills />
         <Projects />
-        <Education />
         <Experience />
+        <Education />
         <Contact />
       </main>
       <Footer />

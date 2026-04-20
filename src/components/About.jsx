@@ -210,10 +210,11 @@ const About = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
+                {/* https://i.ibb.co.com/wZ0ct1yX/image-5-Photoroom.png */}
                 <img 
                   alt="Juma Islam - Professional Developer" 
                   className="w-full h-full object-cover transition-all duration-700 hover:scale-105" 
-                  src="https://i.ibb.co.com/wZ0ct1yX/image-5-Photoroom.png"
+                  src="https://i.ibb.co.com/krjgJw0/saree-removebg-preview.png"
                   ref={imageRef}
                 />
                 
